@@ -7,12 +7,12 @@
 # user_str = str(input("Enter a string: "))
 
 
-# This line named function  will also be useful for some more problems below :
-def line(num, text):
-    if len(text) > 0:
-        print(text[0] * num)
-    else:
-        print("*" * num)
+# # This line named function  will also be useful for some more problems below :
+# def line(num, text):
+#     if len(text) > 0:
+#         print(text[0] * num)
+#     else:
+#         print("*" * num)
 
 
 # line(user_int, user_str)
@@ -284,7 +284,13 @@ def line(num, text):
 #     my_list[indx] = new_val
 #     print(my_list)
 
-# # Add i
+# # ---------------------
+# # # List methods
+# append(item) use to add item in last of list
+# insert(index,item) use to add item at specific index in list all other items already in list align respectively
+# pop(index) remove the item from list using index and return the item
+# remove(item) remove the first matched item from list
+# sort() it sort the items in list from smallest to highest mean in acending order
 
 # # Add item at specific location:  .insert() method used to add item at specific index
 # numbers = [1, 2, 3, 4, 5, 6]
@@ -347,4 +353,126 @@ def line(num, text):
 #         break
 #     my_list.append(word)
 
-#
+# # Please write a program which asks the user to type in values and adds them to a list. After each addition, the list is printed out in two different ways:
+# # in the order the items were added
+# # ordered from smallest to greatest
+# # The program exits when the user types in 0.
+
+# # # Solution of this problem using .sort() method:
+# actual_list = []
+# ordered_list = []
+# while True:
+#     new_item = int(input("Please give new item: "))
+
+#     if new_item == 0:
+#         break
+
+#     actual_list.append(new_item)
+#     ordered_list.append(new_item)
+#     ordered_list.sort()
+#     print(f"The list now: {actual_list}")
+#     print(f"The list in order: {ordered_list}")
+
+# # Solution of this problem by manual sorting:
+# my_list = []
+# ordered_list = []
+# while True:
+#     new_item = int(input("Please give new item: "))
+
+#     if new_item == 0:
+#         break
+
+#     my_list.append(new_item)
+#     if len(ordered_list) > 0:
+#         i = 0
+#         insert = False
+#         while i < len(ordered_list):
+#             if new_item <= ordered_list[i]:
+#                 ordered_list.insert(i, new_item)
+#                 insert = True
+#                 break
+#             i += 1
+
+#         if insert != True:
+#             ordered_list.append(new_item)
+#     else:
+#         ordered_list.append(new_item)
+#     print(f"The list now: {my_list}")
+#     print(f"The list in order: {ordered_list}")
+
+# ------------------------------------------------------
+# # # # List functions
+# # max(inp_list) is used to get greatest item from the inp_list
+# # min(inp_list) is used to get smallest item from the inp_list
+# # sum(inp_list) is used to get sum of all items in the inp_list
+
+
+# my_list = [5, 2, 3, 1, 4]
+
+# greatest = max(my_list)
+# smallest = min(my_list)
+# list_sum = sum(my_list)
+
+# print("Smallest:", smallest)
+# print("Greatest:", greatest)
+# print("Sum:", list_sum)
+
+
+# ========= methods vs function ============
+# method is used using means using dot (.) eg: .method_name(input_value)
+# function is called and give some value, some times function also take list as an input eg: max(inp_list) it give the greatest item from inp_list
+# ==========================================
+
+
+# # A list as an argument or a return value
+# def median(my_list: list):
+#     ordered = sorted(my_list)
+#     list_centre = len(ordered) // 2
+#     return ordered[list_centre]
+
+# shoe_sizes = [45, 44, 36, 39, 40]
+# print("The median of the shoe sizes is", median(shoe_sizes))
+
+# ages = [1, 56, 34, 22, 5, 77, 5]
+# print("The median of the ages is", median(ages))
+
+# -------------------------------------------------
+# # Please write a function named length which takes a list as its argument and returns the length of the list.
+
+
+# def length(my_list:list):
+#     return len(my_list)
+
+
+# my_list = [1, 2, 3, 4, 5]
+# result = length(my_list)
+# print("The length is", result)
+
+# result = length([1, 1, 1, 1])
+# print("The length is", result)
+
+
+# # Please write a function named mean, which takes a list of integers as an argument. The function returns the arithmetic mean of the values in the list.
+# def mean(my_list: list):
+#     my_list.sort()
+#     return my_list[int((len(my_list) - 1) / 2)]
+
+
+# my_list = [1, 2, 3, 4, 5]
+# result = mean(my_list)
+# print("mean value is", result)
+
+
+# # Please write a function named range_of_list, which takes a list of integers as an argument. The function returns the difference between the smallest and the largest value in the list.
+
+
+# def range_of_list(my_list: list):
+#     return max(my_list) - min(my_list)
+
+
+# my_list = [1, 2, 3, 4, 5]
+# result = range_of_list(my_list)
+# print("The range of the list is", result)
+
+# ----------------------------------------------------
+# # Definite iteration
