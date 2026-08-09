@@ -475,4 +475,516 @@
 # print("The range of the list is", result)
 
 # ----------------------------------------------------
-# # Definite iteration
+# # # Definite iteration
+
+# # # The for loop
+# my_list = [3, 2, 4, 5, 2]
+
+# for item in my_list:
+#     print(item)
+
+# --------------------------------------
+# # # for loop for string
+# name = "Muhammad"
+
+# for character in name:
+#     print(character)
+
+# # -------------------------------------
+# # Please write a program which asks the user to type in a string. The program then prints each input character on a separate line. After each character there should be a star (*) printed on its own line.
+
+# inp_string = str(input("Please give your string: "))
+
+# for character in inp_string:
+#     print(character)
+#     print("*")
+
+# ----------------------------------------
+# # The function range
+# # range(5) means from 0 to 5  (note: 5 is excluded b/c indx start from 0).   range(3,7) means from 3 to 7 (note: 7 is excluded b/c indx start from 0).
+# # range(1, 9, 2) last value is iteration means + 2, if range(9, 1, -1) it will change value -1 means give values in reverse order
+
+# for i in range(5):
+#     print(i)
+
+# # --------------------------------------------
+# # Please write a program which asks the user for a positive integer N. The program then prints out all numbers between -N and N inclusive, but leaves out the number 0. Each number should be printed on a separate line.
+# inp_num = int(input("Please enter a positive integer number: "))
+
+# for num in range(-inp_num, inp_num + 1, 1):
+#     if num == 0:
+#         continue
+#     print(num)
+
+# # --------------------------------------
+# # From a range to a list
+
+# numbers = list(range(2, 7))
+# print(numbers)
+
+
+# # Please write a function named list_of_stars, which takes a list of integers as its argument. The function should print out lines of star characters. The numbers in the list specify how many stars each line should contain.
+
+
+# def list_of_stars(int_list: list):
+#     for num in int_list:
+#         print("*" * int(num))
+
+
+# list_of_stars([3, 7, 1, 1, 2])
+
+
+# # Please write a function named anagrams, which takes two strings as arguments. The function returns True if the strings are anagrams of each other. Two words are anagrams if they contain exactly the same characters.
+# def anagrams(string1: str, string2: str):
+#     sorted1 = sorted(string1)
+#     sorted2 = sorted(string2)
+
+#     if sorted1 == sorted2:
+#         return True
+#     else:
+#         return False
+
+
+# print(anagrams("tame", "meta"))  # True
+# print(anagrams("tame", "mate"))  # True
+# print(anagrams("tame", "team"))  # True
+# print(anagrams("tabby", "batty"))  # False
+# print(anagrams("python", "java"))  # False
+
+
+# # Please write a function named palindromes, which takes a string argument and returns True if the string is a palindrome. Palindromes are words which are spelled exactly the same backwards and forwards.
+# # Please also write a main program which asks the user to type in words until they type in a palindrome:
+
+
+# def palindromes(my_string: str):
+#     rev_string = ""
+#     for i in range(len(my_string) - 1, -1, -1):
+#         rev_string = rev_string + my_string[i]
+#     if my_string == rev_string:
+#         return True
+#     else:
+#         return False
+
+
+# while True:
+#     result = bool()
+
+#     inp_string = str(input("Please type in a palindrome: "))
+#     result = palindromes(inp_string)
+
+#     if result == True:
+#         print(f"{inp_string} is a palindrome")
+#         break
+#     elif result == False:
+#         print("that wasn't a palindrome")
+
+
+# # Please write a function named sum_of_positives, which takes a list of integers as its argument. The function returns the sum of the positive values in the list.
+
+
+# def sum_of_positives(my_list: list):
+#     sum = 0
+#     for i in my_list:
+#         if i > 0:
+#             sum = sum + i
+#     return sum
+
+
+# my_list = [1, -2, 3, -4, 5]
+# result = sum_of_positives(my_list)
+# print("The result is", result)
+
+# # Please write a function named even_numbers, which takes a list of integers as an argument. The function returns a new list containing the even numbers from the original list.
+
+
+# def even_numbers(my_list: list):
+#     even_list = []
+#     for i in my_list:
+#         if i % 2 == 0:
+#             even_list.append(i)
+#     return even_list
+
+
+# my_list = [1, 2, 3, 4, 5]
+# new_list = even_numbers(my_list)
+# print("original", my_list)
+# print("new", new_list)
+
+# # Please write a function named list_sum which takes two lists of integers as arguments. The function returns a new list which contains the sums of the items at each index in the two original lists. You may assume both lists have the same number of items.
+
+
+# def list_sum(my_list1: list, my_list2: list):
+#     new_list = []
+#     for i in range(0, len(my_list1)):
+#         new_list.append(my_list1[i] + my_list2[i])
+#     return new_list
+
+
+# a = [1, 2, 3]
+# b = [7, 8, 9]
+# print(list_sum(a, b))  # [8, 10, 12]
+
+
+# # Please write a function named distinct_numbers, which takes a list of integers as its argument. The function returns a new list containing the numbers from the original list in order of magnitude, and so that each distinct number is present only once.
+# def distinct_numbers(my_list: list):
+#     new_list = []
+#     for i in my_list:
+#         if new_list.__contains__(i):
+#             continue
+#         else:
+#             new_list.append(i)
+#     new_list.sort()
+#     return new_list
+
+
+# my_list = [3, 2, 2, 1, 3, 3, 1]
+# print(distinct_numbers(my_list))  # [1, 2, 3]
+
+# -----------------------------------------------------------------
+# Finding the best or the worst item in a list
+
+
+# # Please write a function named length_of_longest, which takes a list of strings as its argument. The function returns the length of the longest string.
+
+
+# def length_of_longest(my_list: list):
+#     if len(my_list) == 0:
+#         return None
+#     output = 0
+#     for item in my_list:
+#         if len(item) > output:
+#             output = len(item)
+
+#     return output
+
+
+# my_list = ["first", "second", "fourth", "eleventh"]
+
+# result = length_of_longest(my_list)
+# print(result)
+# my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+# result = length_of_longest(my_list)
+# print(result)
+
+# my_list = []
+
+# result = length_of_longest(my_list)
+# print(result)
+
+# # Please write a function named shortest, which takes a list of strings as its argument. The function returns whichever of the strings is the shortest. If more than one are equally short, the function can return any of the shortest strings (there will be no such situation in the tests). You may assume there will be no empty strings in the list.
+
+
+# def shortest(my_list: list):
+#     if len(my_list) == 0:
+#         return None
+
+#     output = my_list[0]
+#     for item in my_list:
+#         if len(output) > len(item):
+#             output = item
+#     return output
+
+
+# my_list = ["first", "second", "fourth", "eleventh"]
+
+# result = shortest(my_list)
+# print(result)
+
+# my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+# result = shortest(my_list)
+# print(result)
+
+# my_list = []
+
+# result = shortest(my_list)
+# print(result)
+
+
+# # Please write a function named all_the_longest, which takes a list of strings as its argument. The function should return a new list containing the longest string in the original list. If more than one are equally long, the function should return all of the longest strings.
+# # The order of the strings in the returned list should be the same as in the original.
+
+
+# def all_the_longest(my_list: list):
+#     longest_length = 0
+
+#     for item in my_list:
+#         if longest_length < len(item):
+#             longest_length = len(item)
+
+#     new_list = []
+#     for item in my_list:
+#         if len(item) == longest_length:
+#             new_list.append(item)
+
+#     return new_list
+
+
+# my_list = ["first", "second", "fourth", "eleventh"]
+
+# result = all_the_longest(my_list)
+# print(result)  # ['eleventh']
+
+# my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+# result = all_the_longest(my_list)
+# print(result)  # ['dorothy', 'richard']
+
+# -----------------------------------------------------
+# # # Print statement formatting
+
+# name = "Mark"
+# age = 37
+
+# # The first is the + operator for strings. It allows simple concatenation of string segments:
+# print("Hi " + name + " your age is " + str(age) + " years")
+
+# # The second method is considering each segment of the argument as a separate argument, and splitting them up with commas:
+# print("Hi", name, "your age is", age, "years")
+
+# # If need to remove the automatically added spaces, you can add a special named argument sep:
+# print("Hi", name, "your age is", age, "years", sep="")
+# print("Hi", name, "your age is", age, "years", sep="\n")
+# print("Hi", name, "your age is", age, "years", sep=" #***# ")
+
+# # ***note: By default print command always starts from a new line
+# print("ali")
+# print("Muhammad")
+# # The keyword argument end specifies what is put at the end of a line.
+# print("adil", end=" *** ")
+# print("Muhammad")
+
+# # The third method to prepare strings is f-strings.
+# print(f"Hi {name} your age is {age} years")
+
+# # The format specifier .2f states that we want to display 2 decimals.
+# number = 1 / 3
+# print(f"The number is {number:.2f}")
+
+# # Here's another example, where we specify the amount of whitespace reserved for the variable in the printout. Both times the variable name is included in the resulting string, it has a space of 15 characters reserved. First the names are justified to the left, and then they are justified to the right:
+# names = ["Steve", "Jean", "Katherine", "Paul"]
+# for name in names:
+#     print(f"{name:15} centre {name:>15}")
+
+# # --------------------------------------------------------------------
+# # Please write a function named formatted, which takes a list of floating point numbers as its argument. The function returns a new list, which contains each element of the original list in string format, rounded to two decimal points. The order of the items in the list should remain unchanged.
+
+
+# def formatted(my_list: list):
+#     new_list = []
+#     for item in my_list:
+#         new_list.append(f"{item: .2f}")
+
+#     return new_list
+
+
+# my_list = [1.234, 0.3333, 0.11111, 3.446]
+# new_list = formatted(my_list)
+# print(new_list)
+
+
+# # -----------------------------------------------------
+# # # More strings and lists
+
+# # List slicing
+# my_list = [3, 4, 2, 4, 6, 1, 2, 4, 2]
+# print(my_list[3:7])
+
+# # In fact, the [] syntax works very similarly to the range function, which means we can also give it a step:
+# my_string = "exemplary"
+# print(my_string[0:7:2])
+
+# my_list = [1, 2, 3, 4, 5, 6, 7, 8]
+# print(my_list[6:2:-1])
+
+# # If we omit either of the indexes, the operator defaults to including everything. Among other things, this allows us to write a very short program to reverse a string:
+# my_string = input("Please type in a string: ")
+# print(my_string[::-1])
+
+# # Please write a function named everything_reversed, which takes a list of strings as its argument. The function returns a new list with all of the items on the original list reversed. Also the order of items should be reversed on the new list.
+
+
+# def everything_reversed(my_list: list):
+#     new_list = []
+#     for item in my_list:
+#         new_list.append(item[::-1])
+#     return new_list[::-1]
+
+
+# my_list = ["Hi", "there", "example", "one more"]
+# new_list = everything_reversed(my_list)
+# print(new_list)
+
+# ---------------------------------------------
+# # Strings are immutable
+# my_string = "exemplary"
+# my_string[0] = "a"
+
+# # Strings themselves are immutable, but the variables holding them are not. A string can be replaced by another string.
+# my_list = [1, 2, 3]
+# my_list[0] = 10
+
+# my_string = "Hey"
+# my_string = my_string + "!"
+
+# ----------------------------------------------
+# # # More methods for lists and strings
+# # .count(item) it return the total number of item in list or string
+# my_string = "How much wood would a woodchuck chuck if a woodchuck could chuck wood"
+# print(my_string.count("ch"))
+
+# my_list = [1, 2, 3, 1, 4, 5, 1, 6]
+# print(my_list.count(1))
+
+# # .replace(item,new_item) It replace all items similar to the given item with new_item in string
+# my_string = "Python is fun, Use python"
+
+# # Replaces the substring and stores the result in the same variable
+# my_string = my_string.replace("Python", "Java")
+# print(my_string)
+
+
+# # Please write a function named most_common_character, which takes a string argument. The function returns the character which has the most occurrences within the string. If there are many characters with equally many occurrences, the one which appears first in the string should be returned.
+
+
+# def most_common_character(my_string: str):
+#     if len(my_string) == 0:
+#         return None
+
+#     result = my_string[0]
+#     for char in my_string:
+#         if my_string.count(result) < my_string.count(char):
+#             result = char
+#     return result
+
+
+# first_string = "abcdbde"
+# print(most_common_character(first_string))
+
+# second_string = "exemplaryelementary"
+# print(most_common_character(second_string))
+
+
+# # Please write a function named no_vowels, which takes a string argument. The function returns a new string, which should be the same as the original but with all vowels removed.
+# # You can assume the string will contain only characters from the lowercase English alphabet a...z.
+
+
+# def no_vowels(my_string: str):
+#     vowels = ["a", "e", "i", "o", "u"]
+#     new_string = ""
+#     for char in my_string:
+#         if vowels.count(char) == 0:
+#             new_string = new_string + char
+#     return new_string
+
+
+# inp_string = "this is an example"
+# result = no_vowels(inp_string)
+# print(result)
+
+# # ---------------------------------------------------
+# # The Python string method isupper() returns True if a string consists of only uppercase characters.
+# print("XYZ".isupper())
+
+# is_it_upper = "Abc".isupper()
+# print(is_it_upper)
+
+
+# # Please use the isupper method to write a function named no_shouting, which takes a list of strings as an argument. The function returns a new list, containing only those items from the original which do not consist of solely uppercase characters.
+
+
+# def no_shouting(my_list: list):
+#     new_list = []
+#     for item in my_list:
+#         if item.isupper() == False:
+#             new_list.append(item)
+#     return new_list
+
+
+# my_list = [
+#     "ABC",
+#     "def",
+#     "UPPER",
+#     "ANOTHERUPPER",
+#     "lower",
+#     "another lower",
+#     "Capitalized",
+# ]
+# pruned_list = no_shouting(my_list)
+# print(pruned_list)
+
+# --------------------------------------------------------
+# # Given a list of integers, let's decide that two consecutive items in the list are neighbours if their difference is 1. So, items 1 and 2 would be neghbours, and so would items 56 and 55.
+# # Please write a function named longest_series_of_neighbours, which looks for the longest series of neighbours within the list, and returns its length.
+# # For example, in the list [1, 2, 5, 4, 3, 4] the longest list of neighbours would be [5, 4, 3, 4], with a length of 4.
+
+# def longest_series_of_neighbours(my_list:list):
+# --------------------------------------------------------
+
+# # # Long problem (Project):
+
+# # In this exercise you will write a program for printing out grade statistics for a university course.
+# # The program asks the user for results from different students on the course. These include exam points and numbers of exercises completed. The program then prints out statistics based on the results.
+# # Exam points are integers between 0 and 20. The number of exercises completed is an integer between 0 and 100.
+# # The program keeps asking for input until the user types in an empty line. You may assume all lines contain valid input, which means that there are two integers on each line, or the line is empty.
+
+# results = []
+
+# while True:
+#     std_result = input("Exam points and exercises completed: ")
+
+#     if std_result == "":
+#         break
+
+#     std_result = std_result.split()
+#     std_result[0] = int(std_result[0])
+#     std_result[1] = int(std_result[1])
+#     results.append(std_result)
+
+# total_students = len(results)
+# final_points = 0
+# grade_0 = 0
+# grade_1 = 0
+# grade_2 = 0
+# grade_3 = 0
+# grade_4 = 0
+# grade_5 = 0
+
+# for student in results:
+#     exam_points = student[0]
+#     exercises = student[1]
+#     exercise_points = exercises // 10
+#     total_points = exercise_points + exam_points
+#     final_points = final_points + total_points
+#     if exam_points < 10:
+#         grade = 0
+#         grade_0 = grade_0 + 1
+#     else:
+#         if total_points >= 0 and total_points <= 14:
+#             grade_0 = grade_0 + 1
+#         elif total_points >= 15 and total_points <= 17:
+#             grade_1 = grade_1 + 1
+#         elif total_points >= 18 and total_points <= 20:
+#             grade_2 = grade_2 + 1
+#         elif total_points >= 21 and total_points <= 23:
+#             grade_3 = grade_3 + 1
+#         elif total_points >= 24 and total_points <= 27:
+#             grade_4 = grade_4 + 1
+#         elif total_points >= 28 and total_points <= 30:
+#             grade_5 = grade_5 + 1
+
+# point_average = final_points / total_students
+# pass_students = total_students - grade_0
+# pass_percentage = pass_students / total_students * 100
+
+# print("Statistics: ")
+# print(f"Point average: {point_average:.1f}")
+# print(f"Pass percentage: {pass_percentage}")
+# print(f"Grade distribution: ")
+# print("5:" + "*" * grade_5)
+# print("4:" + "*" * grade_4)
+# print("3:" + "*" * grade_3)
+# print("2:" + "*" * grade_2)
+# print("1:" + "*" * grade_1)
+# print("0:" + "*" * grade_0)
